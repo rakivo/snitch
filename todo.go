@@ -157,7 +157,7 @@ func (todo Todo) GitCommit(prefix string) error {
 		return err
 	}
 
-	if err := LogCommand(exec.Command("git", "commit", "-m", fmt.Sprintf("%s %s(%s)", prefix, todo.Keyword, *todo.ID))).Run(); err != nil {
+	if err := LogCommand(exec.Command("git", "commit", "-m", fmt.Sprintf("%s %s(%s): %s", prefix, todo.Keyword, *todo.ID, todo.Title))).Run(); err != nil {
 		return err
 	}
 
